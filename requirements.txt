@@ -1,0 +1,15 @@
+# Dependências do projeto
+# instalação com: pip install -r requirements.txt
+
+# Manipulação de dados
+pandas>=3.0.1
+
+# Machine Learning
+scikit-learn==1.8.0
+
+# API (Passo 2 — Azure)
+fastapi
+uvicorn
+gunicorn
+
+azure-storage-blob
