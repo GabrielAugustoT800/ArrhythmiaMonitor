@@ -11,6 +11,7 @@ import pandas as pd
 import plotly.graph_objects as go
 from dash import Input, Output, State, callback, ctx, dcc, html, dash_table
 
+from utils.email_alert import enviar_alerta
 from utils.analysis import status_color, status_label_pt, bpm_zone, STATUS_IRREGULAR
 from utils.storage import load_blob
 from utils.theme import (
@@ -272,6 +273,9 @@ def _render(store, max_points):
         irregulares = ultimos_5.count(STATUS_IRREGULAR)
 
         if irregulares >= 4:
+
+            enviar_alerta(latest, irregulares)
+            
             if len(records) >= 6:
                 anteriores = [r["status"] for r in records[-6:-1]]
                 if anteriores.count(STATUS_IRREGULAR) < 4:
