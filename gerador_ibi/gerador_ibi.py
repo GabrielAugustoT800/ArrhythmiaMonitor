@@ -153,7 +153,7 @@ def main():
 
             # --- Verificar se o processo C++ ainda está ativo ---
             if processo.poll() is not None:
-                print("[ERRO] Processo C++ encerrou inesperadamente.", flush=True)
+                print(f"[ERRO] Processo C++ encerrou inesperadamente. Código: {processo.poll()}", flush=True)
                 break
 
             # --- Delay simulando tempo real ---
